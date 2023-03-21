@@ -1,6 +1,6 @@
 import './App.css';
 import './normal.css';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 function App() {
 
