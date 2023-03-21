@@ -6,8 +6,8 @@ function App() {
 
 
   const [input, setInput] = useState("");
-  const [models, setModels] = useState([]);
-  const [currentModel, setCurrentModel] = useState("ada");
+  // const [models, setModels] = useState([]);
+  // const [currentModel, setCurrentModel] = useState("ada");
   const [chatLog, setChatLog] = useState([{user: "gpt", message:"How can I help you today?"},
   {
     user:"me",
@@ -15,9 +15,9 @@ function App() {
   }]);
 
 
-  useEffect(() => {
-    getEngines();
-  },[])
+  // useEffect(() => {
+  //   getEngines();
+  // },[])
 
   // clear chart 
 
@@ -25,11 +25,11 @@ function App() {
     setChatLog([]);
   }
 
-  function getEngines(){
-    fetch(`https://open-tg2o.onrender.com/models`)
-    .then((res) => res.json())
-    .then((data) => setModels(data.models))
-  }
+  // function getEngines(){
+  //   fetch(`https://open-tg2o.onrender.com/models`)
+  //   .then((res) => res.json())
+  //   .then((data) => setModels(data.models))
+  // }
   
   async function handleSubmit(e){
    e.preventDefault();
@@ -47,7 +47,7 @@ const messages = ChatLogNew.map((message) => message.message).join("\n")
     },
     body: JSON.stringify({
       message: messages,
-      currentModel
+     
     })
    });
 
@@ -68,13 +68,13 @@ const messages = ChatLogNew.map((message) => message.message).join("\n")
     New Chat
    </div>
    <div className='models'>
-     <select onChange={(e) => setCurrentModel(e.target.value)}>
+     {/* <select>
      {
       models.map((model, index) => (
         <option key={model.id} value={model.id}>{model.id}</option>
       ))
      } 
-     </select>
+     </select> */}
    </div>
   </aside>
   <section className='chatbox'>
